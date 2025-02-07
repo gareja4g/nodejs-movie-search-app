@@ -1,0 +1,32 @@
+name: Deploy to Staging and Production
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  deploy-staging:
+    if: github.ref == 'refs/heads/develop'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Install Dependencies (if needed)
+        run: |
+          npm install
+
+      - name: Deploy to Hostinger Staging via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_SERVER_STAGE }}
+          username: ${{ secrets.FTP_USERNAME_STAGE }}
+          password: ${{ secrets.FTP_PASSWORD_STAGE }}
+          port: 21
+          protocol: ftp
+          local-dir: ./
+          server-dir: ${{ secrets.FTP_SERVER_DIR_STAGE }}
+          log-level: "standard"
+          timeout: 300
