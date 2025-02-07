@@ -1,0 +1,4 @@
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^([a-zA-Z0-9-]+)\.devhost\.tech$ [NC]
+RewriteCond %{REQUEST_URI} !^/staging
+RewriteRule ^(.*)$ http://localhost:5000/$1 [P,L]
