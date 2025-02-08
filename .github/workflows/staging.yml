@@ -30,4 +30,3 @@ jobs:
           server-dir: ${{ secrets.FTP_SERVER_DIR_STAGE }}
           log-level: "verbose"
           timeout: 500
-          passive: true
