@@ -1,13 +1,13 @@
-name: Deploy to Staging
+name: Deploy to Production
 
 on:
   push:
     branches:
-      - develop
+      - main
 
 jobs:
-  deploy-staging:
-    if: github.ref == 'refs/heads/develop'
+  deploy-production:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
 
     steps:
@@ -18,16 +18,16 @@ jobs:
         run: |
           npm install
 
-      - name: Deploy to Hostinger Staging via FTP
+      - name: Deploy to Hostinger Production via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
-          server: ${{ secrets.FTP_SERVER_STAGE }}
-          username: ${{ secrets.FTP_USERNAME_STAGE }}
-          password: ${{ secrets.FTP_PASSWORD_STAGE }}
+          server: ${{ secrets.FTP_SERVER_PROD }}
+          username: ${{ secrets.FTP_USERNAME_PROD }}
+          password: ${{ secrets.FTP_PASSWORD_PROD }}
           port: 21
           protocol: ftp
           local-dir: ./
-          server-dir: ${{ secrets.FTP_SERVER_DIR_STAGE }}
+          server-dir: ${{ secrets.FTP_SERVER_DIR_PROD }}
           log-level: "verbose"
           timeout: 500
           passive: true
