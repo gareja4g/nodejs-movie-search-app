@@ -1,4 +1,4 @@
-name: Deploy to Staging and Production
+name: Deploy to Staging
 
 on:
   push:
@@ -28,5 +28,5 @@ jobs:
           protocol: ftp
           local-dir: ./
           server-dir: ${{ secrets.FTP_SERVER_DIR_STAGE }}
-          log-level: "standard"
-          timeout: 300
+          log-level: "verbose"
+          timeout: 1000
