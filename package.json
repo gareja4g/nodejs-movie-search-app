@@ -1,14 +1,33 @@
 {
+  "name": "nodejs-movie-search-app",
+  "version": "1.0.0",
+  "description": "NodeJs Movie Search App  Movie Search App A simple and intuitive movie search application that allows users to search for movies by title and view detailed information such as plot, cast, ratings, and more. The app fetches and displays movie data in an organized and user-friendly way, with smooth experience.",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "keywords": ["learning", "movie-search-api"],
+  "author": "Gautam Gareja",
+  "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^3.0.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
     "dotenv": "^16.4.7",
-    "express": "^4.21.2"
+    "express": "^4.21.2",
+    "helmet": "^8.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.10.1",
+    "morgan": "^1.10.0",
+    "passport": "^0.7.0",
+    "passport-google-oauth20": "^2.0.0"
   },
   "devDependencies": {
-    "@eslint/js": "^9.19.0",
-    "eslint": "^9.19.0",
+    "@eslint/js": "^9.20.0",
+    "eslint": "^9.20.1",
     "eslint-config-google": "^0.14.0",
     "eslint-plugin-import": "^2.31.0",
-    "globals": "^15.14.0",
+    "globals": "^15.15.0",
     "nodemon": "^3.1.9"
   }
 }
