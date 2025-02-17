@@ -5,7 +5,8 @@ const morgan = require("morgan");
 const helmet = require("helmet");
 const passport = require("./config/passport");
 const authRoutes = require("./routes/authRoutes");
-const movieRoutes = require("./routes/authRoutes");
+const movieRoutes = require("./routes/movieRoutes");
+const watchedRoutes = require("./routes/watchedRoutes");
 const errorMiddleware = require("./middleware/errorMiddleware");
 
 const app = express();
@@ -20,6 +21,7 @@ app.use(passport.initialize());
 
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/movies", movieRoutes);
+app.use("/api/v1/watched", watchedRoutes);
 
 app.get("/", (req, res) => {
   res.status(200).json({

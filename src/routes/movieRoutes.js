@@ -1,8 +1,11 @@
-const express = require('express')
-const router = express.Router()
+const express = require('express');
+const router = express.Router();
+const movieController = require("../controllers/movieController");
+const authMiddleware = require("../middleware/authMiddleware");
 
-router.get('/', (req, res) => {
-  res.send("Welcome to API for the Movie Search App!")
-})
+router.use(authMiddleware);
 
-module.exports = router
+router.get("/movies", movieController.getMoviesByName);
+router.get("/movies/:id", movieController.getMovieById);
+
+module.exports = router;
